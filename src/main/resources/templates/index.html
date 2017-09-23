@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/Template :: header">
+</head>
+<body>
+
+    <div  th:replace="fragments/Template :: navbar"></div>
+
+    <section class="container main">
+
+        <div class="row justify-content-sm-center justify-content-md-center ">
+            <div class="col-sm-12 col-md-12">
+
+                <div class="jumbotron">
+
+                    <h1 class="display-3"> Spring + Hibernate </h1>
+
+                    <p class="lead">
+                        Hibernate implementation with Spring Framework !
+                    </p>
+                    <hr class="my-4"/>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea explicabo, fugit molestiae nobis nulla odio placeat provident saepe velit vero! Facilis, illo voluptatum. A asperiores aspernatur consectetur minima quam reiciendis.</p>
+                    <p class="lead">
+                        <a class="btn btn-primary btn-lg" th:href="@{/client}" role="button">View Clients</a>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <div th:replace="fragments/Template :: footer"></div>
+
+    <!-- scripts -->
+    <div th:replace="fragments/Template :: scripts"></div>
+</body>
+</html>

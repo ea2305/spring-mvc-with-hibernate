@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/Template :: header">
+
+</head>
+<body>
+
+    <div th:replace="fragments/Template :: navbar"></div>
+
+    <section class="container main">
+
+        <div th:if="${success != null}" id="success-msg" class="p-3 mb-2 bg-success text-white" th:text="${success}"
+        onclick="document.getElementById('success-msg').style.display = 'none'" style="cursor: pointer;"></div>
+
+        <div th:if="${errors != null}" id="error-msg" class="p-3 mb-2 bg-danger text-white" th:text="${errors}"
+        onclick="document.getElementById('error-msg').style.display = 'none'" style="cursor: pointer"></div>
+
+
+        <div class="row justify-content-sm-center justify-content-md-center ">
+            <div class="col-sm-10 col-md-8">
+
+                <div class="card" >
+                    <img class="card-img-top" src="http://lorempixel.com/1000/300/people" alt="Table clients"/>
+                    <div class="card-body">
+                        <h4 class="card-title">Clients</h4>
+
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Phone</th>
+                                <th>Birthdate</th>
+                                <th>Update</th>
+                                <th>Delete</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            <tr th:each="client : ${clients}">
+
+                                <td scope="row" th:text="${client.getId()}">1</td>
+                                <td th:text="${client.getFirst_name()}">1</td>
+                                <td th:text="${client.getLast_name()}">1</td>
+                                <td th:text="${client.getPhone()}">1</td>
+                                <td th:text="${client.getBirthdate()}">1</td>
+                                <td>
+                                    <a th:href="@{/client/{id}/update(id=${client.getId()})}"> Update </a>
+                                </td>
+                                <td>
+                                    <a th:href="@{/client/{id}/delete(id=${client.getId()})}"> Delete </a>
+                                </td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+
+                        <p class="card-text">View all clients</p>
+                        <a th:href="@{/client}" class="btn btn-primary">Update</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <div th:replace="fragments/Template :: footer"></div>
+
+    <!-- scripts -->
+    <div th:replace="fragments/Template :: scripts"></div>
+
+</body>
+</html>
